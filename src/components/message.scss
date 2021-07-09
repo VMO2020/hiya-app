@@ -1,0 +1,86 @@
+@import '../styles/styles.scss';
+
+.msg-container {
+	&__box {
+		display: flex;
+		margin: 0.2em 0;
+
+		&.send {
+			justify-content: flex-end;
+
+			.msg {
+				border-radius: 2em 0 2em 2em;
+				flex-direction: row-reverse;
+
+				p {
+					margin-right: 0.3em;
+				}
+			}
+		}
+
+		&.received {
+			justify-content: flex-start;
+
+			.msg {
+				border-radius: 0 2em 2em 2em;
+
+				p {
+					margin-left: 0.3em;
+				}
+			}
+		}
+
+		.msg {
+			display: flex;
+			max-width: 90%;
+			margin: 0.2em 0;
+			padding: 0.5em;
+			box-shadow: var(--shadowSM);
+
+			img {
+				width: 2em;
+				height: 2em;
+				border-radius: 50%;
+				margin: auto 0;
+			}
+			p,
+			input {
+				@include font-size(18px, 26px);
+				font-family: 'Roboto', sans-serif;
+				font-weight: 300;
+				color: var(--foregroundColor);
+				margin: 0;
+				padding: 0 0.5em;
+			}
+
+			input {
+				margin: 0 0.5em;
+			}
+		}
+	}
+	button {
+		background-color: transparent;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: 0.5s;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+
+		svg {
+			@include size(24px, 34px);
+			@include height(24px, 34px);
+			fill: var(--dangerColor);
+			stroke: rgba(125, 125, 125, 0.3);
+			stroke-width: 1px;
+		}
+	}
+
+	.done {
+		svg {
+			fill: green;
+		}
+	}
+}

@@ -1,0 +1,74 @@
+@import '../styles/styles.scss';
+
+.chat-container {
+	position: relative;
+	width: 100vw;
+	max-width: $maxWidth;
+	height: 100vh;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+	background-color: var(--backgroundColor);
+	color: var(--foregroundColor);
+	overflow: hidden;
+	z-index: 0;
+
+	.header {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 5vh;
+		background-color: var(--mainColor);
+		z-index: 2;
+
+		img {
+			height: 100%;
+			margin-left: 0.5rem;
+		}
+
+		.nav {
+			display: flex;
+
+			.signout,
+			.info {
+				display: flex;
+				height: 100%;
+				min-width: 60px;
+				margin: auto 0;
+				cursor: pointer;
+				// border: 2px solid;
+
+				svg {
+					@include size(28px, 36px);
+					fill: var(--lightColor);
+					margin: auto;
+					transition: 0.5s;
+
+					&:hover {
+						transform: scale(1.2);
+						fill: var(--alertColor);
+					}
+				}
+			}
+		}
+	}
+	.main {
+		position: relative;
+		width: 100%;
+		height: 89vh;
+		padding: 0.5em;
+		color: black;
+		overflow: scroll;
+		z-index: 1;
+	}
+	.footer {
+		position: relative;
+		display: flex;
+		width: 100%;
+		height: 5vh;
+		padding: 0 0.3em;
+		// background-color: var(--mainColor);
+		z-index: 2;
+	}
+}

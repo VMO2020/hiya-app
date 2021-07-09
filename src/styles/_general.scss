@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+
+html {
+	scroll-behavior: smooth;
+	// scroll-padding: 90px;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	// font-family: 'Montserrat', sans-serif;
+	background: #000000; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#434343,
+		#000000
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#434343,
+		#000000
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	.ui {
+		svg {
+			color: var(--lightColor);
+		}
+	}
+}
