@@ -43,7 +43,7 @@ export const Message = ({ id, text, photoURL, uid }) => {
 				<div className='msg'>
 					<img src={photoURL} alt='avatar' />
 					{control && uid === auth.currentUser.uid ? (
-						<input
+						<textarea
 							type='text'
 							defaultValue={text}
 							onChange={(e) => setEditMsg(e.target.value)}

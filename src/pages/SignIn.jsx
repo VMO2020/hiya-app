@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import { auth } from '../firebase';
 
 // Icons
-import logo from '../assets/images/Logo.png';
+import logo from '../assets/images/Logo_white.png';
 import { ReactComponent as Google } from '../assets/icons/social/google.svg';
 
 // Styles
@@ -12,7 +12,14 @@ import './signin.scss';
 export const SignIn = () => {
 	const SignInWithGoogle = () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
-		auth.signInWithPopup(provider);
+		auth
+			.signInWithPopup(provider)
+			.then((result) => {
+				console.log('user authenticated');
+			})
+			.catch((error) => {
+				console.log(`Error ${error.code}: ${error.message}`);
+			});
 	};
 
 	return (

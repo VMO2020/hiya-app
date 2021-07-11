@@ -7,24 +7,28 @@ form {
 	align-content: center;
 
 	input {
-		@include font-size(16px, 22px);
+		@include font-size(16px, 26px);
+		line-height: 26px;
 		width: 90%;
-		padding-left: 0.5em;
+		height: 70%;
+		margin: auto 0;
+		padding: 0.3em;
 		outline: none;
+		border: none;
 		border-radius: 1em;
-		border: 2px solid var(--mainColor);
 	}
 
 	button {
 		@include font-size(16px, 22px);
 		width: 10%;
-		background-color: var(--backgroundColor);
+		margin: auto 0;
+		background-color: transparent;
 		outline: none;
 		border: none;
 
 		svg {
 			@include size(34px, 50px);
-			fill: var(--mainColor);
+			fill: var(--lightColor);
 			cursor: pointer;
 			transition: 0.5s;
 

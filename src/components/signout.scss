@@ -5,12 +5,12 @@
 	border-radius: 5px;
 	background-color: var(--mainColor);
 	h4 {
-		@include font-size(22px, 30px);
+		@include font-size(18px, 26px);
 		font-family: 'Roboto', sans-serif;
 		font-weight: 500;
 		color: var(--lightColor);
 		padding: 1px 15px;
-		margin: auto;
+		margin: auto 0.5em;
 		cursor: pointer;
 		outline: none;
 		border: 3px solid var(--lightColor);
@@ -21,6 +21,15 @@
 			transform: scale(1.05);
 			color: var(--alertColor);
 			border: 3px solid var(--alertColor);
+		}
+	}
+}
+
+@include mQ(200px, 350px) {
+	.btn {
+		h4 {
+			font-size: 16px;
+			padding: 0 15px;
 		}
 	}
 }

@@ -44,7 +44,7 @@
 				margin: auto 0;
 			}
 			p,
-			input {
+			textarea {
 				@include font-size(18px, 26px);
 				font-family: 'Roboto', sans-serif;
 				font-weight: 300;
@@ -53,8 +53,9 @@
 				padding: 0 0.5em;
 			}
 
-			input {
+			textarea {
 				margin: 0 0.5em;
+				color: var(--darkColor);
 			}
 		}
 	}
@@ -80,7 +81,7 @@
 
 	.done {
 		svg {
-			fill: green;
+			fill: var(--successColor);
 		}
 	}
 }

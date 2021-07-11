@@ -21,8 +21,8 @@
 		z-index: 2;
 
 		img {
-			height: 100%;
-			margin-left: 0.5rem;
+			height: 80%;
+			margin: auto 0.5rem;
 		}
 
 		.title {
@@ -54,6 +54,7 @@
 			svg {
 				@include size(40px, 50px);
 				margin-right: 1em;
+				cursor: pointer;
 			}
 
 			.btn {
@@ -69,10 +70,12 @@
 					margin: auto;
 					cursor: pointer;
 					outline: none;
+					border: none;
 					transition: 0.5s;
 
 					&:hover {
 						transform: scale(1.05);
+						color: var(--alertColor);
 					}
 				}
 			}

@@ -9,19 +9,30 @@ import { SendMessages } from '../components/SendMessages';
 import { Message } from '../components/Message';
 
 //Images
-import Logo from '../assets/images/Logo.png';
+import Logo from '../assets/images/Logo_white.png';
 
 // Icons
-import { ReactComponent as Info } from '../assets/icons/ui/info.svg';
+// import { ReactComponent as Info } from '../assets/icons/ui/info.svg';
 
 //Styles
 import './chat.scss';
 
 export const Chat = () => {
 	const [messages, setMessages] = useState([]);
+	const [modal, setModal] = useState(true);
 
 	// Auto scroll to the end
 	const scroll = useRef();
+
+	const scrollToEnd = () => {
+		// Scroll to the end using useRef to Ref=scroll
+		scroll.current.scrollIntoView({ behavior: 'smooth' });
+	};
+
+	const startScreen = () => {
+		setModal(false);
+		scrollToEnd();
+	};
 
 	const getMessages = () => {
 		db.collection('messages')
@@ -41,22 +52,27 @@ export const Chat = () => {
 
 	return (
 		<div className='chat-container'>
+			{modal && (
+				<button className='modal' onClick={startScreen}>
+					<h3>START</h3>
+				</button>
+			)}
 			<div className='header'>
 				<img src={Logo} alt='Logo' />
 				<div className='nav'>
 					<div className='signout'>
 						<Signout />
 					</div>
-					<div className='info'>
+					{/* <div className='info'>
 						<Info />
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<div className='main'>
 				{messages.map(({ id, text, photoURL, uid }) => (
 					<Message key={id} id={id} text={text} photoURL={photoURL} uid={uid} />
 				))}
-				<div ref={scroll}></div>
+				<div ref={scroll} id='end'></div>
 			</div>
 			<div className='footer'>
 				<SendMessages scroll={scroll} />
