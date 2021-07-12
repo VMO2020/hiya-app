@@ -13,35 +13,16 @@
 	overflow: hidden;
 	z-index: 0;
 
-	.modal {
-		position: absolute;
-		display: flex;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		max-width: $maxWidth;
-		height: 100vh;
-		background-color: rgba(0, 0, 0, 0.8);
-		z-index: 10;
-
-		h3 {
-			@include font-size(60px, 80px);
-			color: var(--mainColor);
-			margin: auto;
-			background-color: var(--lightColor);
-			border-radius: 5px;
-		}
-	}
-
 	.header {
 		position: fixed;
 		top: 0;
-		left: 0;
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
+		max-width: $maxWidth;
 		height: 5vh;
 		min-height: 2.3rem;
+		margin: 0 auto;
 		background-color: var(--mainColor);
 		z-index: 2;
 
@@ -96,6 +77,23 @@
 		margin: 0;
 		background-color: var(--mainColor);
 		z-index: 2;
+	}
+}
+
+button.modal-card {
+	background-color: var(--lightColor);
+	padding: 1rem 3rem;
+	border: none;
+	box-shadow: var(--shadow);
+	border-radius: 2rem;
+	z-index: 20;
+
+	h3 {
+		@include font-size(50px, 70px);
+		color: var(--mainColor);
+		margin: auto;
+		cursor: pointer;
+		z-index: 30;
 	}
 }
 

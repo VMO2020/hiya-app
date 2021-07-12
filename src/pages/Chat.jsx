@@ -16,6 +16,7 @@ import Logo from '../assets/images/Logo_white.png';
 
 //Styles
 import './chat.scss';
+import { Modal } from '../components/Modal';
 
 export const Chat = () => {
 	const [messages, setMessages] = useState([]);
@@ -53,10 +54,13 @@ export const Chat = () => {
 	return (
 		<div className='chat-container'>
 			{modal && (
-				<button className='modal' onClick={startScreen}>
-					<h3>START</h3>
-				</button>
+				<Modal>
+					<button className='modal-card'>
+						<h3 onClick={startScreen}>START</h3>
+					</button>
+				</Modal>
 			)}
+
 			<div className='header'>
 				<img src={Logo} alt='Logo' />
 				<div className='nav'>
