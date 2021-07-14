@@ -1,0 +1,69 @@
+@import '../styles/styles.scss';
+
+.card-box {
+	position: relative;
+	margin: 0;
+	padding: 20px;
+	width: 360px;
+	height: 220px;
+	border-radius: 10px;
+	background-color: var(--backgroundColor);
+	box-shadow: var(--shadow);
+	// border: 2px solid;
+
+	img {
+		position: absolute;
+		top: -50px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		border: 8px solid var(--backgroundColor);
+	}
+
+	.close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+
+		svg {
+			width: 25px;
+			height: 25px;
+			fill: var(--foregroundColor);
+		}
+	}
+
+	p {
+		text-align: center;
+		color: var(--foregroundColor);
+	}
+
+	p.name {
+		font-size: 30px;
+		margin-top: 60px;
+
+		b {
+			color: var(--mainColor);
+		}
+	}
+	p.email {
+		font-size: 20px;
+		margin-top: 35px;
+	}
+}
+
+@include mQ(200px, 330px) {
+	.card-box {
+		width: 280px;
+		height: 200px;
+
+		p.name {
+			font-size: 24px;
+		}
+
+		p.email {
+			font-size: 16px;
+		}
+	}
+}

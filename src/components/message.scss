@@ -84,4 +84,8 @@
 			fill: var(--successColor);
 		}
 	}
+
+	#modal > button {
+		background-color: red;
+	}
 }

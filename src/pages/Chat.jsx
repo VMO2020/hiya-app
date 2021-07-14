@@ -64,8 +64,16 @@ export const Chat = () => {
 				</div>
 			</div>
 			<div className='main'>
-				{messages.map(({ id, text, photoURL, uid }) => (
-					<Message key={id} id={id} text={text} photoURL={photoURL} uid={uid} />
+				{messages.map(({ id, text, photoURL, uid, email, displayName }) => (
+					<Message
+						key={id}
+						id={id}
+						text={text}
+						photoURL={photoURL}
+						uid={uid}
+						email={email}
+						displayName={displayName}
+					/>
 				))}
 				<div ref={scroll} id='end'></div>
 			</div>

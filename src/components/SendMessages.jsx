@@ -15,12 +15,14 @@ export const SendMessages = ({ scrollToEnd }) => {
 
 	const sendMessage = async (e) => {
 		e.preventDefault();
-		const { uid, photoURL } = auth.currentUser;
+		const { uid, photoURL, email, displayName } = auth.currentUser;
 
 		await db.collection('messages').add({
 			text: msg,
 			photoURL,
 			uid,
+			email,
+			displayName,
 			createdAt: firebase.firestore.FieldValue.serverTimestamp(),
 		});
 		setMsg('');

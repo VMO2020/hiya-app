@@ -7,12 +7,17 @@ import { db, auth } from '../firebase';
 import { ReactComponent as Delete } from '../assets/icons/ui/delete.svg';
 import { ReactComponent as Done } from '../assets/icons/ui/done_solid.svg';
 
+// Component
+import { Modal } from './Modal';
+import { User } from '../components/User';
+
 // Styles
 import './message.scss';
 
-export const Message = ({ id, text, photoURL, uid }) => {
+export const Message = ({ id, text, photoURL, uid, email, displayName }) => {
 	const [control, setControl] = useState(false);
 	const [editMsg, setEditMsg] = useState(text);
+	const [modalUser, setModalUser] = useState(false);
 
 	const msgDelete = async () => {
 		window.confirm('Are you sure you want to delete this message?') &&
@@ -35,13 +40,20 @@ export const Message = ({ id, text, photoURL, uid }) => {
 
 	return (
 		<div className='msg-container'>
+			{modalUser && (
+				<Modal>
+					<div onClick={() => setModalUser(false)}>
+						<User photoURL={photoURL} email={email} displayName={displayName} />
+					</div>
+				</Modal>
+			)}
 			<div
 				className={`msg-container__box ${
 					uid === auth.currentUser.uid ? 'send' : 'received'
 				}`}
 			>
 				<div className='msg'>
-					<img src={photoURL} alt='avatar' />
+					<img src={photoURL} alt='avatar' onClick={() => setModalUser(true)} />
 					{control && uid === auth.currentUser.uid ? (
 						<textarea
 							type='text'
