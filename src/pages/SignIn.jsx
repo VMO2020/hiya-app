@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// Firebase & Firestore
 import firebase from 'firebase/app';
 import { auth } from '../firebase';
 
@@ -10,6 +13,8 @@ import { ReactComponent as Google } from '../assets/icons/social/google.svg';
 import './signin.scss';
 
 export const SignIn = () => {
+	const [policy, setPolicy] = useState(false);
+
 	const SignInWithGoogle = () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
 		auth
@@ -29,11 +34,37 @@ export const SignIn = () => {
 				<h2 className='title'>HiYaApp</h2>
 			</div>
 			<div className='main'>
+				<div className='agree'>
+					<input
+						type='checkbox'
+						name='policy'
+						onClick={() => setPolicy(!policy)}
+					/>
+					<label>
+						<b>This website use cookies to personalize your experience</b>. I
+						confirm that I have read, consent and agree our use of cookies and
+						our privacy policy.
+					</label>
+				</div>
 				<div className='sign-in-box'>
-					<Google onClick={SignInWithGoogle} />
-					<button className='btn' onClick={SignInWithGoogle}>
+					<Google />
+					<button
+						className='btn'
+						onClick={SignInWithGoogle}
+						disabled={policy ? false : true}
+					>
 						<h4>Sign In With Google</h4>
 					</button>
+				</div>
+				<div className='policy-box'>
+					<Link to='/privacy' className='policy'>
+						<h5>Privacy Policy</h5>
+					</Link>
+				</div>
+				<div className='policy-box'>
+					<Link to='/cookies' className='policy'>
+						<h5>Cookies Policy</h5>
+					</Link>
 				</div>
 			</div>
 			<div className='footer'>

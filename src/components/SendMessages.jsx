@@ -10,7 +10,7 @@ import { ReactComponent as Send } from '../assets/icons/ui/send.svg';
 // Styles
 import './sendmessages.scss';
 
-export const SendMessages = ({ scroll }) => {
+export const SendMessages = ({ scrollToEnd }) => {
 	const [msg, setMsg] = useState('');
 
 	const sendMessage = async (e) => {
@@ -24,8 +24,7 @@ export const SendMessages = ({ scroll }) => {
 			createdAt: firebase.firestore.FieldValue.serverTimestamp(),
 		});
 		setMsg('');
-		// Scroll to the end using useRef to Ref=scroll
-		scroll.current.scrollIntoView({ behavior: 'smooth' });
+		scrollToEnd();
 	};
 
 	const handleInputChange = (e) => {

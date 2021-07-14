@@ -16,11 +16,9 @@ import Logo from '../assets/images/Logo_white.png';
 
 //Styles
 import './chat.scss';
-import { Modal } from '../components/Modal';
 
 export const Chat = () => {
 	const [messages, setMessages] = useState([]);
-	const [modal, setModal] = useState(true);
 
 	// Auto scroll to the end
 	const scroll = useRef();
@@ -30,10 +28,11 @@ export const Chat = () => {
 		scroll.current.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	const startScreen = () => {
-		setModal(false);
-		scrollToEnd();
-	};
+	useEffect(() => {
+		setTimeout(() => {
+			scrollToEnd();
+		}, 500);
+	}, []);
 
 	const getMessages = () => {
 		db.collection('messages')
@@ -53,14 +52,6 @@ export const Chat = () => {
 
 	return (
 		<div className='chat-container'>
-			{modal && (
-				<Modal>
-					<button className='modal-card'>
-						<h3 onClick={startScreen}>START</h3>
-					</button>
-				</Modal>
-			)}
-
 			<div className='header'>
 				<img src={Logo} alt='Logo' />
 				<div className='nav'>
@@ -79,7 +70,7 @@ export const Chat = () => {
 				<div ref={scroll} id='end'></div>
 			</div>
 			<div className='footer'>
-				<SendMessages scroll={scroll} />
+				<SendMessages scrollToEnd={scrollToEnd} />
 			</div>
 		</div>
 	);
