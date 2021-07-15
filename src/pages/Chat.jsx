@@ -7,18 +7,21 @@ import { db } from '../firebase';
 import { Signout } from '../components/Signout';
 import { SendMessages } from '../components/SendMessages';
 import { Message } from '../components/Message';
+import { Modal } from '../components/Modal';
+import { Info } from '../components/Info';
 
 //Images
 import Logo from '../assets/images/Logo_white.png';
 
 // Icons
-// import { ReactComponent as Info } from '../assets/icons/ui/info.svg';
+import { ReactComponent as InfoIcon } from '../assets/icons/ui/info.svg';
 
 //Styles
 import './chat.scss';
 
 export const Chat = () => {
 	const [messages, setMessages] = useState([]);
+	const [diplayInfo, setDiplayInfo] = useState(false);
 
 	// Auto scroll to the end
 	const scroll = useRef();
@@ -52,15 +55,22 @@ export const Chat = () => {
 
 	return (
 		<div className='chat-container'>
+			{diplayInfo && (
+				<Modal>
+					<div onClick={() => setDiplayInfo(false)}>
+						<Info />
+					</div>
+				</Modal>
+			)}
 			<div className='header'>
 				<img src={Logo} alt='Logo' />
 				<div className='nav'>
 					<div className='signout'>
 						<Signout />
 					</div>
-					{/* <div className='info'>
-						<Info />
-					</div> */}
+					<div className='info' onClick={() => setDiplayInfo(true)}>
+						<InfoIcon />
+					</div>
 				</div>
 			</div>
 			<div className='main'>

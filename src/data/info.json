@@ -1,0 +1,27 @@
+{
+    "Content-Type": "application/vnd.api+json",
+    "title": "User INFO",
+    "info": [
+      {
+        "id": "1",
+        "title": "CREATE: ",
+        "text": "Type a new Message and send"
+      },
+      {
+        "id": "2",
+        "title": "UPDATE: ",
+        "text": "Tap or click on your message and edit"
+      },
+      {
+        "id": "3",
+        "title": "DELETE: ",
+        "text": "Tap or click on your message and select delete"
+      },
+      {
+        "id": "4",
+        "title": "USER Info: ",
+        "text": "Tap or click on the user avatar"
+      }
+
+    ]
+}

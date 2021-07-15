@@ -1,0 +1,53 @@
+@import '../styles/styles.scss';
+
+.modal-card {
+	position: relative;
+	margin: 1em;
+	padding: 1.5em 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 10px;
+	background-color: var(--backgroundColor);
+	box-shadow: var(--shadow);
+
+	.close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+
+		svg {
+			width: 1.8em;
+			height: 1.8em;
+			fill: var(--foregroundColor);
+		}
+	}
+
+	h2 {
+		@include font-size(30px, 32px);
+		color: var(--mainColor);
+		margin-bottom: 0.5em;
+	}
+
+	p {
+		@include font-size(19px, 26px);
+		color: var(--foregroundColor);
+		width: 100%;
+		margin: 0.8em auto;
+	}
+}
+
+@include mQ(200px, 330px) {
+	.modal-card {
+		width: 280px;
+
+		h2 {
+			font-size: 22px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}

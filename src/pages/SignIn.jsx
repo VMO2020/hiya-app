@@ -8,6 +8,7 @@ import { auth } from '../firebase';
 // Icons
 import logo from '../assets/images/Logo_white.png';
 import { ReactComponent as Google } from '../assets/icons/social/google.svg';
+import { ReactComponent as Github } from '../assets/icons/social/github.svg';
 
 // Styles
 import './signin.scss';
@@ -24,6 +25,20 @@ export const SignIn = () => {
 			})
 			.catch((error) => {
 				console.log(`Error ${error.code}: ${error.message}`);
+				alert(`Error ${error.code}: ${error.message}`);
+			});
+	};
+
+	const SignInWithGithub = () => {
+		const provider = new firebase.auth.GithubAuthProvider();
+		auth
+			.signInWithPopup(provider)
+			.then((result) => {
+				console.log('user authenticated');
+			})
+			.catch((error) => {
+				console.log(`Error ${error.code}: ${error.message}`);
+				alert(`Error ${error.code}: ${error.message}`);
 			});
 	};
 
@@ -54,6 +69,17 @@ export const SignIn = () => {
 						disabled={policy ? false : true}
 					>
 						<h4>Sign In With Google</h4>
+					</button>
+				</div>
+
+				<div className='sign-in-box'>
+					<Github />
+					<button
+						className='btn'
+						onClick={SignInWithGithub}
+						disabled={policy ? false : true}
+					>
+						<h4>Sign In With Github</h4>
 					</button>
 				</div>
 				<div className='policy-box'>

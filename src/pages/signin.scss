@@ -72,18 +72,17 @@
 
 		.sign-in-box {
 			display: flex;
-			justify-content: center;
+			justify-content: space-between;
 			width: 90%;
 			max-width: 30rem;
 			margin: 0.5rem;
-			padding: 2em;
+			padding: 1em 3em;
 			border-radius: 0.5rem;
 			box-shadow: var(--shadow);
 			// border: 2px solid black;
 
 			svg {
 				@include size(38px, 50px);
-				margin-right: 1em;
 			}
 
 			.btn {
@@ -95,7 +94,7 @@
 					font-family: 'Roboto', sans-serif;
 					font-weight: 500;
 					color: var(--foregroundColor);
-					padding: 5px 15px;
+					padding: 0;
 					margin: auto;
 					cursor: pointer;
 					outline: none;
