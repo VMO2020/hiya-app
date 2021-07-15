@@ -1,0 +1,48 @@
+// Buttons
+.btn {
+	@include font-size(14px, 21px);
+	border-radius: 0.2em;
+	cursor: pointer;
+	display: inline-block;
+	padding: 0.2em 1em;
+	text-decoration: none;
+	letter-spacing: 1px;
+	position: relative;
+	overflow: hidden;
+	transition: all 1s ease;
+}
+
+.btn__social {
+	@include font-size(20px, 26px);
+	color: white;
+	line-height: 1.5em;
+	box-shadow: var(--shadowSM);
+	padding: 0.2em 0.8em;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	svg {
+		@include size(20px, 26px, 1, 1);
+		margin-right: 0.5em;
+		path {
+			fill: white;
+		}
+	}
+}
+
+.btn__facebook {
+	background-color: #3b5998;
+}
+
+.btn__whatsapp {
+	background-color: #00bb2d;
+}
+
+.btn__twitter {
+	background-color: #1da1f2;
+}
+
+.btn__instagram {
+	background-color: #dd2a7b;
+}

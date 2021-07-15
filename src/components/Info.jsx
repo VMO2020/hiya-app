@@ -25,6 +25,14 @@ export const Info = () => {
 					</p>
 				))}
 			</div>
+			<a
+				className='copyright'
+				href='https://vmog.net/'
+				target='_blank'
+				rel='noreferrer'
+			>
+				Copyright and app design by © VMOG
+			</a>
 		</div>
 	);
 };
