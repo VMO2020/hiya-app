@@ -19,9 +19,10 @@ export const SignIn = () => {
 	const SignInWithGoogle = () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
 		auth
-			.signInWithPopup(provider)
+			.signInWithRedirect(provider)
 			.then((result) => {
 				console.log('user authenticated');
+				// console.log(result.user);
 			})
 			.catch((error) => {
 				console.log(`Error ${error.code}: ${error.message}`);
@@ -32,7 +33,7 @@ export const SignIn = () => {
 	const SignInWithGithub = () => {
 		const provider = new firebase.auth.GithubAuthProvider();
 		auth
-			.signInWithPopup(provider)
+			.signInWithRedirect(provider)
 			.then((result) => {
 				console.log('user authenticated');
 			})

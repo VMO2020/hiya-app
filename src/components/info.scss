@@ -28,6 +28,7 @@
 		@include font-size(30px, 32px);
 		color: var(--mainColor);
 		margin-bottom: 0.5em;
+		text-transform: uppercase;
 	}
 
 	p {
