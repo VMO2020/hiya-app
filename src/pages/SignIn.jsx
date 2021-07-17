@@ -9,6 +9,7 @@ import { auth } from '../firebase';
 import logo from '../assets/images/Logo_white.png';
 import { ReactComponent as Google } from '../assets/icons/social/google.svg';
 import { ReactComponent as Github } from '../assets/icons/social/github.svg';
+import { ReactComponent as Facebook } from '../assets/icons/social/facebook.svg';
 
 // Styles
 import './signin.scss';
@@ -32,6 +33,19 @@ export const SignIn = () => {
 
 	const SignInWithGithub = () => {
 		const provider = new firebase.auth.GithubAuthProvider();
+		auth
+			.signInWithRedirect(provider)
+			.then((result) => {
+				console.log('user authenticated');
+			})
+			.catch((error) => {
+				console.log(`Error ${error.code}: ${error.message}`);
+				alert(`Error ${error.code}: ${error.message}`);
+			});
+	};
+
+	const SignInWithFacebook = () => {
+		const provider = new firebase.auth.FacebookAuthProvider();
 		auth
 			.signInWithRedirect(provider)
 			.then((result) => {
@@ -70,6 +84,17 @@ export const SignIn = () => {
 						disabled={policy ? false : true}
 					>
 						<h4>Sign In With Google</h4>
+					</button>
+				</div>
+
+				<div className='sign-in-box'>
+					<Facebook />
+					<button
+						className='btn'
+						onClick={SignInWithFacebook}
+						disabled={policy ? false : true}
+					>
+						<h4>Sign In With Facebook</h4>
 					</button>
 				</div>
 

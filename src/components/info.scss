@@ -3,7 +3,7 @@
 .modal-card {
 	position: relative;
 	margin: 1em;
-	padding: 2.4em 1.5em 4em;
+	padding: 2.4em 1.5em 3.5em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -25,7 +25,7 @@
 	}
 
 	h2 {
-		@include font-size(30px, 32px);
+		@include font-size(30px, 40px);
 		color: var(--mainColor);
 		margin-bottom: 0.5em;
 		text-transform: uppercase;
@@ -36,6 +36,13 @@
 		color: var(--foregroundColor);
 		width: 100%;
 		margin: 0.8em auto;
+	}
+
+	p > span {
+		@include font-size(17px, 24px);
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 300;
+		margin-left: 0.5em;
 	}
 
 	a.copyright {
@@ -68,5 +75,11 @@
 		a.copyright {
 			font-size: 14px;
 		}
+	}
+}
+
+@include mQ(1200px) {
+	.modal-card {
+		padding: 3.4em 2em 6em;
 	}
 }

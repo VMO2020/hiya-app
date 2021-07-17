@@ -21,7 +21,7 @@ export const Info = () => {
 				{dataInfo.map((info) => (
 					<p key={info.id}>
 						<b>{info.title}</b>
-						{info.text}
+						<span>{info.text}</span>
 					</p>
 				))}
 			</div>
